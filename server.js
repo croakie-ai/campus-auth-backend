@@ -5,30 +5,30 @@ const cors = require("cors");
 // Load environment variables
 dotenv.config();
 
-// Initialize express app
+// Connect DB
+const connectDB = require("./config/db");
+connectDB();
+
+// Initialize express
 const app = express();
 
 // Middleware
-app.use(express.json()); // Allows us to read JSON from req.body
-app.use(cors()); // Allows frontend to communicate with backend
+app.use(express.json());
+app.use(cors());
 
-// Import DB connection
-require("dotenv").config();
-const connectDB = require("./config/db");
-
-// Connect to MongoDB
-connectDB();
-
+// Routes
 const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
 
-
-// Basic test route
+// Test route
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-// Define PORT
+// Auto-delete unverified users cron
+require("./utils/deleteUnverifiedUsers");
+
+// Port
 const PORT = process.env.PORT || 5000;
 
 // Start server

@@ -7,7 +7,9 @@
     "jsonwebtoken": "^9.0.3",
     "mongodb": "^4.17.2",
     "mongoose": "^9.2.1",
-    "node": "^25.6.1"
+    "node": "^25.6.1",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^8.0.1"
   },
   "name": "server",
   "version": "1.0.0",
