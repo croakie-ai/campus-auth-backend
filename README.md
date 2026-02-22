@@ -14,4 +14,4 @@ Secure authentication backend built using Node.js, Express.js, MongoDB, JWT, and
 Node.js • Express.js • MongoDB • JWT • bcrypt
 
 ## Author
-Yugal Mahajan & Misthi Bansal
+Misthi Bansal & Yugal Mahajan
